@@ -5,7 +5,7 @@ wait = time.sleep
 menu_str = "Welcome to Office101"
 menu_choices_str = ("LogIn(1)\nSignUp(2)\nEXIT(3)\nSelect Input:")
 global_choices = ("1", "2", "3")
-max_char_len = 8
+max_char_len = 20
 min_char_len = 3
 
 account_menu_str = "Account Creation"
@@ -50,13 +50,36 @@ def create_account():
 
 
 
+     
+     
+     
+     
+     
+     
+    print("AccountCreated!")
+    wait(2)
+
+
 
     
     return{"username":username_input, "password":password_input_first}
-            
-            
 
 
+
+            
+
+class the_office:
+    def __init__(self):
+        self.rules = []
+        self.accounts = []
+
+    def save_accounts(self, accounts):
+        self.accounts.append(accounts)
+
+
+
+
+office = the_office()
 
 
 
@@ -73,7 +96,8 @@ def main_menu():
                 wait(2)
                 continue
             elif menu_input == global_choices[1]:
-                create_account()
+                account = create_account()
+                office.save_accounts(account)
                 break
             else:
                print("EXIT")
@@ -83,25 +107,12 @@ def main_menu():
             continue
 
 
-    
 
 
-
-
-
-
-
-
-class the_office:
-    def __init__(self):
-        self.rules = []
-        self.accounts = []
-
-    def save_accounts(self):
-        print("underconstruction")
-
-
-
-
-        
 main_menu()
+
+
+
+saved_accounts = office.save_accounts
+
+

@@ -8,7 +8,9 @@ global_choices = ("1", "2", "3")
 max_char_len = 20
 min_char_len = 3
 signin_menu_str = "Account Creation"
-login_menu_str = "LogIn menu"
+login_menu_str = "Loading..."
+login_menu_str_second = "[OFFICE 101 LOGIN]"
+login_menu_choices_str="LOGIN(1)\nEXIT(2):"
 
 
 
@@ -56,11 +58,27 @@ def create_account():
    
    
            
-def login_accounts():
+def login_accounts(): 
     print(login_menu_str)
     stored_accounts = office.accounts
     wait(2)
+
     while True:
+       login_choices = input(login_menu_choices_str)
+       try:
+           if login_choices == global_choices[0]:
+               break
+           elif login_choices == global_choices[1]:
+               return
+       except ValueError:
+        print("invalid input")
+
+    
+    while True:
+        print("Loading...")
+        wait(2)
+        print(login_menu_str_second)
+        wait(1)
         login_username_input = input("Enter Username:")
         login_password_input = input("Enter Password:")
 
@@ -74,19 +92,8 @@ def login_accounts():
                 continue
 
         
-        
-
-
-           
-           
-           
-           
- 
-
-
-
-
-            
+                
+                      
 
 class the_office:
     def __init__(self):
@@ -98,15 +105,11 @@ class the_office:
     
 
 
-
-
 office = the_office()
 
 
 
-
-
-    
+   
 while True:
         print(menu_str)
         wait(2)

@@ -13,6 +13,18 @@ login_menu_str_second = "[OFFICE 101 LOGIN]"
 login_menu_choices_str="LOGIN(1)\nEXIT(2):"
 
 
+def dashboard():
+    while True:
+        print("youre in dash board")
+        dashboard_menu_input = input("Logout?")
+        if dashboard_menu_input == global_choices[0]:
+            print("Loging out....")
+            wait(2)
+            print("Loading....")
+            return
+        else:
+            print("staying")
+
 
 def create_account():
     print(signin_menu_str)
@@ -84,14 +96,22 @@ def login_accounts():
         
         for accounts in stored_accounts:
             if login_username_input == accounts["username"] and login_password_input == accounts["password"]:
-                print("Login worked")
+                print("Loging in")
+                wait(1)
+                print("Loading...")
+                dashboard()
                 break
         else:
                 print("invlaid, retry")
                 continue
 
         
-                
+ 
+
+
+
+
+
                       
 
 class the_office:
@@ -102,7 +122,6 @@ class the_office:
     def save_accounts(self, accounts):
         self.accounts.append(accounts)
     
-
 
 office = the_office()
 

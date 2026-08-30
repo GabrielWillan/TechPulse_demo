@@ -44,7 +44,6 @@ def create_account():
     while True:
         password_input_second= input("ReEnter password:")
         if password_input_second == password_input_first:
-            completed_password = (password_input_second,password_input_first)
             print("Password succefully created")
             wait(2)
             print("Account succesfully created")
@@ -53,7 +52,7 @@ def create_account():
         else:
             print("Password is invalid, please enter matching password! ")
         
-    return{"username": username_input, "password":completed_password}
+    return{"username": username_input, "password":password_input_first}
   
    
    

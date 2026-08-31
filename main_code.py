@@ -1,10 +1,11 @@
+import json
 import time
 
 wait = time.sleep
 
 menu_str = "Welcome to Office101"
 menu_choices_str = ("LogIn(1)\nSignUp(2)\nEXIT(3)\nSelect Input:")
-global_choices = ("1", "2", "3")
+global_choices = ("1", "2", "3", "4")
 max_char_len = 20
 min_char_len = 3
 signin_menu_str = "Account Creation"
@@ -121,10 +122,12 @@ class the_office:
 
     def save_accounts(self, accounts):
         self.accounts.append(accounts)
+        json.dumps(accounts)
     
 
 office = the_office()
 
+saved_accounts = office.save_accounts("accounts")
 
 
    
@@ -141,6 +144,8 @@ while True:
                 account = create_account()
                 office.save_accounts(account)
                 continue
+            elif menu_input == global_choices[3]:
+                print(saved_accounts)
             else:
                print("EXIT")
                break
@@ -152,6 +157,6 @@ while True:
 
 
 
-
+#Display the saved accounts converting them back from json to python string
 
 
